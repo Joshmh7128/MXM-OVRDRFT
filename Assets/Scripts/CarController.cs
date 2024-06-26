@@ -28,7 +28,9 @@ public class CarController : MonoBehaviour
     [SerializeField] Transform accelerationPoint;
     [SerializeField] float steerStrength;
     [SerializeField] AnimationCurve turningCurve;
-    [SerializeField] float dragCoefficient;
+    [SerializeField] float dragCoefficient, normalDrag, driftDrag;
+    [SerializeField] bool drifting;
+
 
     private void Start()
     {
@@ -56,6 +58,8 @@ public class CarController : MonoBehaviour
         ProcessSuspension();
         // check our grounded state
         GroundCheck();
+        // set our drift state
+        ManageDriftState();
         // then calculate our car's velocity
         CalculateCarVelocity();
         // apply our acceleration and deceleration
@@ -191,5 +195,16 @@ public class CarController : MonoBehaviour
         float dragMagnitude = -currentSidewaysSpeed * dragCoefficient;
         Vector3 dragForce = transform.right * dragMagnitude;
         carBody.AddForceAtPosition(dragForce, carBody.worldCenterOfMass, ForceMode.Acceleration);
+    }
+
+    /// <summary>
+    /// Manages whether or not we're in a drift state by modifying the dragCoefficient
+    /// </summary>
+    private void ManageDriftState()
+    {
+        // get our A button input to determine our drift state
+        drifting = Input.GetButton("Drift");
+        // then set our drag coefficient properly
+        dragCoefficient = drifting ? driftDrag : normalDrag;
     }
 }
