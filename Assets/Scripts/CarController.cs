@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEditor.UI;
 using UnityEngine;
 using UnityEngine.Rendering;
@@ -19,16 +20,16 @@ public class CarController : MonoBehaviour
     private int[] wheelIsGrounded = new int[4];
     private bool isGrounded = false;
 
-    private float moveInput, steerInput;
+    public float moveInput, steerInput;
 
     [SerializeField] private float acceleration = 25f, maxSpeed = 100f, deceleration = 10f;
-    [SerializeField] private Vector3 currentCarLocalVelocity = Vector3.zero;
+    [SerializeField] public Vector3 currentCarLocalVelocity = Vector3.zero;
     // our car's current speed from 0 to 1
     [SerializeField] float carVelocityRatio = 0;
     [SerializeField] Transform accelerationPoint;
-    [SerializeField] float steerStrength;
+    [SerializeField] public float steerStrength;
     [SerializeField] AnimationCurve turningCurve;
-    [SerializeField] float dragCoefficient, normalDrag, driftDrag;
+    [SerializeField] float dragCoefficient, normalDrag, driftDrag, dragChangeDelta;
     [SerializeField] bool drifting;
 
 
@@ -204,7 +205,22 @@ public class CarController : MonoBehaviour
     {
         // get our A button input to determine our drift state
         drifting = Input.GetButton("Drift");
-        // then set our drag coefficient properly
-        dragCoefficient = drifting ? driftDrag : normalDrag;
+        // then set our drag coefficient accordingly
+        // slowly adjust our drag coefficient so that we do not instantly snap to position
+        if (drifting)
+            dragCoefficient = Mathf.Lerp(dragCoefficient, driftDrag, dragChangeDelta * Time.deltaTime);
+        else
+            dragCoefficient = Mathf.Lerp(dragCoefficient, normalDrag, dragChangeDelta * Time.deltaTime);
+    }
+
+    private void OnDrawGizmos()
+    {
+        foreach (Transform sus in suspensionPoints)
+        {
+            Gizmos.color = Color.white;
+            Gizmos.DrawLine(sus.transform.position, sus.transform.position - sus.transform.up * restLength);
+            Gizmos.color = Color.blue;
+            Gizmos.DrawLine(sus.transform.position - sus.transform.up * restLength,(sus.transform.position - sus.transform.up * restLength) - sus.transform.up * wheelRadius);
+        }
     }
 }

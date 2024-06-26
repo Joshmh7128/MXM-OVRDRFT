@@ -20,7 +20,8 @@ public class CameraController : MonoBehaviour
     /// </summary>
     private void ProcessPosition()
     {
-        transform.position = Vector3.Lerp(transform.position, followPoint.position, followSpeed * Time.deltaTime);
+        if (Vector3.Distance(transform.position, followPoint.position) > 0.1f)
+            transform.position = Vector3.Lerp(transform.position, followPoint.position, followSpeed * Time.fixedDeltaTime);
     }
 
     /// <summary>
