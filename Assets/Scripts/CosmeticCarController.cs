@@ -9,6 +9,7 @@ public class CosmeticCarController : MonoBehaviour
     [SerializeField] Transform[] wheels;
     CarController carController;
     [SerializeField] float maxSteerAngle; // the maximum angle to rotate the wheels to on the y axis
+    [SerializeField] ParticleSystem[] particleSystems;
     // get our car controller
     private void Start()
     {
@@ -20,6 +21,7 @@ public class CosmeticCarController : MonoBehaviour
     {
         ApplyTurn();
         ApplyWheelSpin();
+        HandleParticles();
     }
 
     /// <summary>
@@ -45,6 +47,16 @@ public class CosmeticCarController : MonoBehaviour
         {
             float speed = carController.currentCarLocalVelocity.z;
             wheels[i].localEulerAngles += new Vector3(speed * 1000, 0, 0);
+        }
+    }
+
+    void HandleParticles()
+    {
+        for (int i = 0; i < particleSystems.Length; i++)
+        {
+            float rOT = carController.drifting ? 200 : 0;
+            var emission = particleSystems[i].emission;
+            emission.rateOverTime = rOT;
         }
     }
 }

@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
-using UnityEditor.UI;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.Rendering;
 
@@ -30,7 +30,7 @@ public class CarController : MonoBehaviour
     [SerializeField] public float steerStrength;
     [SerializeField] AnimationCurve turningCurve;
     [SerializeField] float dragCoefficient, normalDrag, driftDrag, dragChangeDelta;
-    [SerializeField] bool drifting;
+    [SerializeField] public bool drifting;
 
 
     private void Start()
