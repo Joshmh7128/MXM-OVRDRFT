@@ -18,14 +18,14 @@ public class CarController : MonoBehaviour
 
     // checks if the wheels are grounded
     private int[] wheelIsGrounded = new int[4];
-    private bool isGrounded = false;
+    public bool isGrounded = false;
 
     public float moveInput, steerInput;
 
     [SerializeField] private float acceleration = 25f, maxSpeed = 100f, deceleration = 10f;
     [SerializeField] public Vector3 currentCarLocalVelocity = Vector3.zero;
     // our car's current speed from 0 to 1
-    [SerializeField] float carVelocityRatio = 0;
+    [SerializeField] public float carVelocityRatio = 0;
     [SerializeField] Transform accelerationPoint;
     [SerializeField] public float steerStrength;
     [SerializeField] AnimationCurve turningCurve;
@@ -123,7 +123,7 @@ public class CarController : MonoBehaviour
             tempGroundedWheels += wheelIsGrounded[i];
 
         // if more than one wheel is on the ground, then we are grounded.
-        if (tempGroundedWheels > 1)
+        if (tempGroundedWheels > 3)
             isGrounded = true;
         else
             isGrounded = false;

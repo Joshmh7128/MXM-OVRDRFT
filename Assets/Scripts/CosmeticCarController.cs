@@ -52,11 +52,23 @@ public class CosmeticCarController : MonoBehaviour
 
     void HandleParticles()
     {
-        for (int i = 0; i < particleSystems.Length; i++)
+        if (carController.isGrounded)
         {
-            float rOT = carController.drifting ? 200 : 0;
-            var emission = particleSystems[i].emission;
-            emission.rateOverTime = rOT;
+            for (int i = 0; i < particleSystems.Length; i++)
+            {
+                float rOT = carController.drifting ? 200 : 0;
+                var emission = particleSystems[i].emission;
+                emission.rateOverTime = rOT;
+            }
+        }
+        else
+        {
+            for (int i = 0; i < particleSystems.Length; i++)
+            {
+                float rOT = 0;
+                var emission = particleSystems[i].emission;
+                emission.rateOverTime = rOT;
+            }
         }
     }
 }
