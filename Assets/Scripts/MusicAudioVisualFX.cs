@@ -6,7 +6,7 @@ using UnityEngine.Rendering.Universal;
 
 public class MusicAudioVisualFX : MonoBehaviour
 {
-    [SerializeField] AudioSource source;
+    public AudioSource source;
     float updateStep = 0.1f;
     public int sampleDataLength = 1024;
     [SerializeField] float scaleMult, lerpSpeed;

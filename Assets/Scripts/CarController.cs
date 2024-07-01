@@ -4,6 +4,7 @@ using Unity.VisualScripting;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.Rendering;
+using UnityEngine.SceneManagement;
 
 [RequireComponent(typeof(Rigidbody))]
 public class CarController : MonoBehaviour
@@ -147,6 +148,7 @@ public class CarController : MonoBehaviour
     {
         moveInput = Input.GetAxis("Vertical");
         steerInput = Input.GetAxis("Horizontal");
+        ProcessReturnToMenu();
     }
 
     /// <summary>
@@ -213,6 +215,14 @@ public class CarController : MonoBehaviour
             dragCoefficient = Mathf.Lerp(dragCoefficient, normalDrag, dragChangeDelta * Time.deltaTime);
     }
 
+    void ProcessReturnToMenu()
+    { 
+        if (Input.GetButtonDown("Start"))
+        {
+            SceneManager.LoadScene("CarSelect");
+            Destroy(gameObject);
+        }
+    }
     private void OnDrawGizmos()
     {
         foreach (Transform sus in suspensionPoints)

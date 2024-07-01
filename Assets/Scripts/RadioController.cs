@@ -17,6 +17,9 @@ public class RadioController : MonoBehaviour
     {
         audioSource = GetComponent<AudioSource>();
         PlayNextSong();
+
+        // find our visualizer and apply ourselves
+        FindObjectOfType<MusicAudioVisualFX>().source = audioSource;
     }
 
     private void Update()
