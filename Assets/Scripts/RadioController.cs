@@ -11,29 +11,36 @@ public class RadioController : MonoBehaviour
     AudioSource audioSource;
     int currentSong; // the song we're on as an int
     public Text songTitle;
+    float nextStart; // the time we start the next song at
 
     private void Start()
     {
         audioSource = GetComponent<AudioSource>();
-        // repeat
-        StartCoroutine(PlayNextSong());
+        PlayNextSong();
     }
 
     private void Update()
     {
-        if (Input.GetKeyUp(KeyCode.UpArrow))
+        if (Input.GetKeyUp(KeyCode.Plus))
         {
             audioSource.volume += 0.1f;
         }
 
-        if (Input.GetKeyUp(KeyCode.DownArrow))
+        if (Input.GetKeyUp(KeyCode.Minus))
         {
             audioSource.volume -= 0.1f;
         }
+
+        if (Time.time > nextStart)
+        {
+            PlayNextSong();
+        }
+
+
     }
 
     // play our songs
-    IEnumerator PlayNextSong()
+    void PlayNextSong()
     {
         // stop
         audioSource.Stop();
@@ -68,12 +75,9 @@ public class RadioController : MonoBehaviour
         audioSource.Play();
 
         // now wait for the song to end
-        yield return new WaitForSecondsRealtime(songs[currentSong].length);
+        nextStart = Time.time + songs[currentSong].length;
 
         // iterate
         currentSong++;
-
-        // repeat
-        StartCoroutine(PlayNextSong());
     }
 }
