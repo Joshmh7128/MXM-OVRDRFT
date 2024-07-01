@@ -22,6 +22,7 @@ public class CosmeticCarController : MonoBehaviour
         ApplyTurn();
         ApplyWheelSpin();
         HandleParticles();
+        HandleWheelHeat();
     }
 
     /// <summary>
@@ -69,6 +70,26 @@ public class CosmeticCarController : MonoBehaviour
                 var emission = particleSystems[i].emission;
                 emission.rateOverTime = rOT;
             }
+        }
+    }
+
+    [SerializeField] float minHeat, maxHeat, wheelHeat, heatRate, coolRate;
+    [SerializeField] Renderer[] heatRenderers;
+    // makes the wheels glow red after a long drift
+    void HandleWheelHeat()
+    {
+        // while drifting, increase our heat
+        if (carController.drifting)
+            wheelHeat += Time.deltaTime * heatRate;
+        else
+            wheelHeat -= Time.deltaTime * coolRate;
+
+        //wheelHeat = Mathf.Clamp(wheelHeat, minHeat, maxHeat);
+
+        // set the materials
+        foreach (Renderer r in heatRenderers)
+        {
+            r.sharedMaterial.SetColor("_EmissiveColor", Color.red * wheelHeat);
         }
     }
 }
