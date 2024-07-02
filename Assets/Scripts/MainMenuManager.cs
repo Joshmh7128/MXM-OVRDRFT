@@ -84,7 +84,6 @@ public class MainMenuManager : MonoBehaviour
         {
             var car = Instantiate(carPrefabs[currentCar], Vector3.zero, Quaternion.identity, null);
             DontDestroyOnLoad(car);
-            car.SetActive(false);
             // load
             SceneManager.LoadScene("PlaySpace");
         }

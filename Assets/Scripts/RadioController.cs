@@ -8,7 +8,7 @@ using UnityEngine.UI;
 public class RadioController : MonoBehaviour
 {
     public List<AudioClip> songs;
-    AudioSource audioSource;
+    public AudioSource audioSource;
     int currentSong; // the song we're on as an int
     public Text songTitle;
     float nextStart; // the time we start the next song at

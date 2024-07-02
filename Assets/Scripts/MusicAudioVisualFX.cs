@@ -39,6 +39,9 @@ public class MusicAudioVisualFX : MonoBehaviour
         if (currentUpdateTime > updateStep)
             currentUpdateTime = 0f;
 
+        if (source == null)
+            source = FindObjectOfType<RadioController>().audioSource;
+
         if (source.clip)
             try { source.clip.GetData(clipSampleData, source.timeSamples); }
             catch { }

@@ -13,6 +13,7 @@ public class CarController : MonoBehaviour
     [SerializeField] List<Transform> suspensionPoints = new List<Transform>();
     [SerializeField] float restLength, springTravel, wheelRadius, damperStiffness, springStiffness;
     [SerializeField] Rigidbody carBody;
+    [SerializeField] Transform centerOfMass;
 
     // whether or not the controller has been initialized
     [SerializeField] bool controllerInitialized;
@@ -33,7 +34,6 @@ public class CarController : MonoBehaviour
     [SerializeField] float dragCoefficient, normalDrag, driftDrag, dragChangeDelta;
     [SerializeField] public bool drifting;
 
-
     private void Start()
     {
         // setup our controller
@@ -47,6 +47,10 @@ public class CarController : MonoBehaviour
 
         // then initialize
         controllerInitialized = true;
+
+        // if we have a center of mass, then set it
+        if (centerOfMass)
+            carBody.centerOfMass = centerOfMass.localPosition;
     }
 
     // run our FixedUpdate Stack
@@ -148,7 +152,6 @@ public class CarController : MonoBehaviour
     {
         moveInput = Input.GetAxis("Vertical");
         steerInput = Input.GetAxis("Horizontal");
-        ProcessReturnToMenu();
     }
 
     /// <summary>
@@ -215,14 +218,6 @@ public class CarController : MonoBehaviour
             dragCoefficient = Mathf.Lerp(dragCoefficient, normalDrag, dragChangeDelta * Time.deltaTime);
     }
 
-    void ProcessReturnToMenu()
-    { 
-        if (Input.GetButtonDown("Start"))
-        {
-            SceneManager.LoadScene("CarSelect");
-            Destroy(gameObject);
-        }
-    }
     private void OnDrawGizmos()
     {
         foreach (Transform sus in suspensionPoints)

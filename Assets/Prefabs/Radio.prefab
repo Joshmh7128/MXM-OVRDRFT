@@ -32,7 +32,7 @@ Transform:
   m_Children:
   - {fileID: 808881069757566007}
   m_Father: {fileID: 0}
-  m_RootOrder: -1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2538292575800084813
 MonoBehaviour:
@@ -61,6 +61,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 3feccd5c8d6991140ab0c4982e3bb140, type: 3}
   - {fileID: 8300000, guid: d8532871a12eefb478f572265560a5db, type: 3}
   - {fileID: 8300000, guid: 1bff209f34307fc48b4310981dc5eda0, type: 3}
+  audioSource: {fileID: 0}
   songTitle: {fileID: 8053622471241581056}
 --- !u!82 &7755740079944422580
 AudioSource:
@@ -74,7 +75,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
-  m_Volume: 0.05
+  m_Volume: 0.1
   m_Pitch: 1
   Loop: 0
   Mute: 0
