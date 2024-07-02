@@ -189,7 +189,7 @@ public class CarController : MonoBehaviour
     /// </summary>
     private void ApplyTurn()
     {
-        carBody.AddTorque(steerStrength * steerInput * turningCurve.Evaluate(carVelocityRatio) * Mathf.Sign(carVelocityRatio) * transform.up, ForceMode.Acceleration);
+        carBody.AddTorque(steerStrength * steerInput * turningCurve.Evaluate(Mathf.Abs(carVelocityRatio)) * transform.up, ForceMode.Acceleration);
     }
 
     /// <summary>
