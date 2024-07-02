@@ -176,12 +176,17 @@ public class CarController : MonoBehaviour
     private void ApplyMovement()
     {
         // only run when the car is grounded
-        if (!isGrounded) return;
-
-        Acceleration();
-        Deceleration();
-        ApplyTurn();
-        SidewaysDrag();
+        if (isGrounded)
+        {
+            Acceleration();
+            Deceleration();
+            ApplyTurn();
+            SidewaysDrag();
+        }
+        else // what we do when we're not grounded
+        {
+            ApplyUngroundedAngularMomentum();
+        }
     }
 
     /// <summary>
@@ -190,6 +195,19 @@ public class CarController : MonoBehaviour
     private void ApplyTurn()
     {
         carBody.AddTorque(steerStrength * steerInput * turningCurve.Evaluate(Mathf.Abs(carVelocityRatio)) * transform.up, ForceMode.Acceleration);
+
+        // store our current steer input for our angular momentum to use if we become ungrounded
+        lastGroundedSteerInput = steerInput;
+    }
+
+    // the last grounded steer input before we become ungrounded
+    float lastGroundedSteerInput;
+    /// <summary>
+    /// Carries angular momentum of the car when it is not grounded
+    /// </summary>
+    private void ApplyUngroundedAngularMomentum()
+    {
+        carBody.AddTorque(steerStrength * lastGroundedSteerInput * turningCurve.Evaluate(Mathf.Abs(carVelocityRatio)) * transform.up, ForceMode.Acceleration);
     }
 
     /// <summary>

@@ -102,7 +102,7 @@ public class MainMenuManager : MonoBehaviour
             {
                 currentCar++;
                 // but catch it otherwise
-                if (currentCar >= carPresentationPositions.Length)
+                if (currentCar >= carPresentationPositions.Length-1)
                     currentCar = 0;
             }
             else
@@ -110,7 +110,7 @@ public class MainMenuManager : MonoBehaviour
                 currentCar--;
                 // but catch it otherwise
                 if (currentCar < 0)
-                    currentCar = carPresentationPositions.Length;
+                    currentCar = carPresentationPositions.Length-1;
             }
 
             lastMove = Time.time;
