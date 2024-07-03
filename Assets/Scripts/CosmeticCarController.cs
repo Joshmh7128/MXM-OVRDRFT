@@ -60,6 +60,7 @@ public class CosmeticCarController : MonoBehaviour
                 float rOT = carController.drifting ? 200 : 0;
                 var system = particleSystems[i].emission;
                 system.rateOverTime = rOT;
+
             }
         }
         else

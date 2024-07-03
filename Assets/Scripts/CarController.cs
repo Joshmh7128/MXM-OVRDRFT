@@ -1,3 +1,4 @@
+using JetBrains.Annotations;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
@@ -9,6 +10,10 @@ using UnityEngine.SceneManagement;
 [RequireComponent(typeof(Rigidbody))]
 public class CarController : MonoBehaviour
 {
+    // our instance
+    public static CarController instance;
+    private void Awake() => instance = this;
+
     // the start of all four of our car wheel suspensions
     [SerializeField] List<Transform> suspensionPoints = new List<Transform>();
     [SerializeField] float restLength, springTravel, wheelRadius, damperStiffness, springStiffness;
@@ -33,6 +38,7 @@ public class CarController : MonoBehaviour
     [SerializeField] AnimationCurve turningCurve;
     [SerializeField] float dragCoefficient, normalDrag, driftDrag, dragChangeDelta;
     [SerializeField] public bool drifting;
+    public float sidewaysSpeed; // how fast we are moving sideways
 
     private void Start()
     {
@@ -70,6 +76,8 @@ public class CarController : MonoBehaviour
         CalculateCarVelocity();
         // apply our acceleration and deceleration
         ApplyMovement();
+        // then process our sideways speed
+        ProcessSidewaysSpeed();
     }
 
     /// <summary>
@@ -199,7 +207,7 @@ public class CarController : MonoBehaviour
     /// </summary>
     private void ApplyTurn()
     {
-        carBody.AddTorque(steerStrength * steerInput * turningCurve.Evaluate(Mathf.Abs(carVelocityRatio)) * transform.up, ForceMode.Acceleration);
+        carBody.AddTorque(steerStrength * steerInput * turningCurve.Evaluate(Mathf.Abs(carVelocityRatio)) * Mathf.Sign(carVelocityRatio) * transform.up, ForceMode.Acceleration);
 
         // store our current steer input for our angular momentum to use if we become ungrounded
         lastGroundedSteerInput = steerInput;
@@ -239,6 +247,22 @@ public class CarController : MonoBehaviour
             dragCoefficient = Mathf.Lerp(dragCoefficient, driftDrag, dragChangeDelta * Time.deltaTime);
         else
             dragCoefficient = Mathf.Lerp(dragCoefficient, normalDrag, dragChangeDelta * Time.deltaTime);
+    }
+
+    Vector3 positionLastFrame = Vector3.zero;
+    /// <summary>
+    /// If we are locally moving to the side, add to our sideways speed
+    /// </summary>
+    private void ProcessSidewaysSpeed()
+    {
+        sidewaysSpeed = 0;
+        if (!drifting) return;
+        // get the relative distance we've moved on the X axis, by converting world space to local space
+        Vector3 plfL = transform.InverseTransformPoint(positionLastFrame);
+        // then check the X axis of this
+        sidewaysSpeed = Mathf.Abs(plfL.x);
+        // then set our last frame position
+        positionLastFrame = transform.position;
     }
 
     private void OnDrawGizmos()
