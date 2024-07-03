@@ -30208,6 +30208,7 @@ MonoBehaviour:
   acceleration: 35
   maxSpeed: 300
   deceleration: 15
+  driftAccelerationBonus: 10
   currentCarLocalVelocity: {x: 0, y: 0, z: 0}
   carVelocityRatio: 0
   accelerationPoint: {fileID: 7432137990659616905}
@@ -30256,7 +30257,7 @@ MonoBehaviour:
     m_RotationOrder: 4
   dragCoefficient: 10
   normalDrag: 10
-  driftDrag: 0.5
+  driftDrag: 0.3
   dragChangeDelta: 6
   drifting: 0
 --- !u!114 &8671157035744794537

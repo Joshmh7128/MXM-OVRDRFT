@@ -58,8 +58,8 @@ public class CosmeticCarController : MonoBehaviour
             for (int i = 0; i < particleSystems.Length; i++)
             {
                 float rOT = carController.drifting ? 200 : 0;
-                var emission = particleSystems[i].emission;
-                emission.rateOverTime = rOT;
+                var system = particleSystems[i].emission;
+                system.rateOverTime = rOT;
             }
         }
         else
@@ -67,8 +67,8 @@ public class CosmeticCarController : MonoBehaviour
             for (int i = 0; i < particleSystems.Length; i++)
             {
                 float rOT = 0;
-                var emission = particleSystems[i].emission;
-                emission.rateOverTime = rOT;
+                var system = particleSystems[i].emission;
+                system.rateOverTime = rOT;
             }
         }
     }
@@ -87,6 +87,7 @@ public class CosmeticCarController : MonoBehaviour
         //wheelHeat = Mathf.Clamp(wheelHeat, minHeat, maxHeat);
 
         // set the materials
+        if (heatRenderers.Length > 0)
         foreach (Renderer r in heatRenderers)
         {
             r.sharedMaterial.SetColor("_EmissiveColor", Color.red * wheelHeat);

@@ -24,7 +24,7 @@ public class CarController : MonoBehaviour
 
     public float moveInput, steerInput;
 
-    [SerializeField] private float acceleration = 25f, maxSpeed = 100f, deceleration = 10f;
+    [SerializeField] private float acceleration = 25f, maxSpeed = 100f, deceleration = 10f, driftAccelerationBonus = 0;
     [SerializeField] public Vector3 currentCarLocalVelocity = Vector3.zero;
     // our car's current speed from 0 to 1
     [SerializeField] public float carVelocityRatio = 0;
@@ -103,7 +103,7 @@ public class CarController : MonoBehaviour
                 // finally build our netForce using our spring force and dampener
                 float netForce = springForce - dampForce;
 
-                // now, perform the add force to the suspension
+                // now, perform the add force to the suspension if we are grounded
                 carBody.AddForceAtPosition(netForce * suspensionPoints[i].up, suspensionPoints[i].position);
 
                 Debug.DrawLine(suspensionPoints[i].position, suspensionPoints[i].position - suspensionPoints[i].up, Color.red);
@@ -159,7 +159,12 @@ public class CarController : MonoBehaviour
     /// </summary>
     private void Acceleration()
     {
-        carBody.AddForceAtPosition(acceleration * moveInput * transform.forward, accelerationPoint.position, ForceMode.Acceleration);
+        float accel = acceleration;
+
+        if (drifting)
+            accel += driftAccelerationBonus * Mathf.Abs(moveInput);
+
+        carBody.AddForceAtPosition(accel * moveInput * transform.forward, accelerationPoint.position, ForceMode.Acceleration);
     }
 
     /// <summary>

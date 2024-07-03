@@ -102,7 +102,7 @@ public class MainMenuManager : MonoBehaviour
             {
                 currentCar++;
                 // but catch it otherwise
-                if (currentCar >= carPresentationPositions.Length-1)
+                if (currentCar >= carPresentationPositions.Length)
                     currentCar = 0;
             }
             else
