@@ -24,6 +24,7 @@ public class MainMenuManager : MonoBehaviour
     [SerializeField] GameObject[] carPrefabs;
     float lastMove;
     [SerializeField] float cooldown;
+    [SerializeField] string targetScene;
 
     private void Update()
     {
@@ -85,7 +86,7 @@ public class MainMenuManager : MonoBehaviour
             var car = Instantiate(carPrefabs[currentCar], Vector3.zero, Quaternion.identity, null);
             DontDestroyOnLoad(car);
             // load
-            SceneManager.LoadScene("PlaySpace");
+            SceneManager.LoadScene(targetScene);
         }
     }
 

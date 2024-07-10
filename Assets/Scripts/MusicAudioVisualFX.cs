@@ -42,7 +42,7 @@ public class MusicAudioVisualFX : MonoBehaviour
         if (source == null)
             source = FindObjectOfType<RadioController>().audioSource;
 
-        if (source.clip)
+        if (source.timeSamples > 1030)
             try { source.clip.GetData(clipSampleData, source.timeSamples); }
             catch { }
 

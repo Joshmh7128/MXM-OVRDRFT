@@ -30064,8 +30064,6 @@ MonoBehaviour:
   particleSystems:
   - {fileID: 2718726730415597582}
   - {fileID: 5161713388033357425}
-  - {fileID: 0}
-  - {fileID: 0}
   - {fileID: 5018942574621455066}
   - {fileID: 7407313074767348938}
   - {fileID: 2689887754254296941}
