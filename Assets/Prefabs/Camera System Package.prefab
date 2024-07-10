@@ -312,6 +312,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Radio
       objectReference: {fileID: 0}
+    - target: {fileID: 3193521089925571168, guid: 58ff943ef356a2d44aaf353808e7c56c,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3574761869587110445, guid: 58ff943ef356a2d44aaf353808e7c56c,
         type: 3}
       propertyPath: m_RootOrder
