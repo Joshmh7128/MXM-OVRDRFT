@@ -1,0 +1,6 @@
+newmtl Light_Ground_Debug
+map_Ke unity_builtin_extra
+map_Kd unity_builtin_extra
+Kd 0.2735848 0.2735848 0.2735848
+d 1
+

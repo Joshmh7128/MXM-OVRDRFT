@@ -1,0 +1,6 @@
+newmtl Red
+map_Ke unity_builtin_extra
+map_Kd unity_builtin_extra
+Kd 1 0 0
+d 1
+
