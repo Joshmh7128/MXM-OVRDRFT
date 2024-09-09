@@ -472,7 +472,7 @@ GameObject:
   - component: {fileID: 6312183051176006558}
   m_Layer: 0
   m_Name: Player Package - Ford Fiesta
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6478,7 +6478,7 @@ GameObject:
   - component: {fileID: 2349916531996041935}
   m_Layer: 0
   m_Name: Spot Light (1)
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -16894,7 +16894,7 @@ GameObject:
   - component: {fileID: 5439947010653588081}
   m_Layer: 0
   m_Name: Wheel (3)
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -38997,7 +38997,7 @@ GameObject:
   - component: {fileID: 1533977173565361441}
   m_Layer: 0
   m_Name: Suspension FR
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -44837,7 +44837,7 @@ GameObject:
   - component: {fileID: 6178529191884648889}
   m_Layer: 0
   m_Name: Wheel FL
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -71835,7 +71835,7 @@ GameObject:
   - component: {fileID: 7517375141391356163}
   m_Layer: 0
   m_Name: Cube
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -71937,7 +71937,7 @@ GameObject:
   - component: {fileID: 4403393492461166454}
   m_Layer: 0
   m_Name: Ford Focus RS RX Ken Block Gymkhana
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -72551,7 +72551,7 @@ GameObject:
   - component: {fileID: 7432137990659616905}
   m_Layer: 0
   m_Name: Acceleration Point
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -73802,7 +73802,7 @@ GameObject:
   - component: {fileID: 3120416455123776741}
   m_Layer: 0
   m_Name: Suspension BR
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -73999,7 +73999,7 @@ GameObject:
   - component: {fileID: 5332121620081524789}
   m_Layer: 0
   m_Name: Wheel Tire Tracks Systems
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -80168,7 +80168,7 @@ GameObject:
   - component: {fileID: 58260202591345188}
   m_Layer: 0
   m_Name: Spot Light
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -91871,7 +91871,7 @@ GameObject:
   - component: {fileID: 1722999850353391626}
   m_Layer: 0
   m_Name: Suspension BL
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -91985,7 +91985,7 @@ GameObject:
   - component: {fileID: 8207677669626332493}
   m_Layer: 0
   m_Name: Wheel Smoke Systems
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -92025,7 +92025,7 @@ GameObject:
   - component: {fileID: 835005384848809965}
   m_Layer: 0
   m_Name: Car Controller
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -92331,7 +92331,7 @@ GameObject:
   - component: {fileID: 3884704044319416970}
   m_Layer: 0
   m_Name: Suspension FL
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -92461,7 +92461,7 @@ GameObject:
   - component: {fileID: 4567023807355905441}
   m_Layer: 0
   m_Name: Wheel (2)
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -114503,7 +114503,7 @@ GameObject:
   - component: {fileID: 8279181932689108951}
   m_Layer: 0
   m_Name: Wheel FR
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -136493,11 +136493,51 @@ PrefabInstance:
       propertyPath: m_Name
       value: Camera System Package
       objectReference: {fileID: 0}
+    - target: {fileID: 1016651008840486818, guid: de3ca3a5e01d61041a0e7522e6adb220,
+        type: 3}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
     - target: {fileID: 1736596442210137783, guid: de3ca3a5e01d61041a0e7522e6adb220,
         type: 3}
       propertyPath: followPoint
       value: 
       objectReference: {fileID: 8477481756013070493}
+    - target: {fileID: 2977558297943558669, guid: de3ca3a5e01d61041a0e7522e6adb220,
+        type: 3}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 3913192036594823631, guid: de3ca3a5e01d61041a0e7522e6adb220,
+        type: 3}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 4385339717860069660, guid: de3ca3a5e01d61041a0e7522e6adb220,
+        type: 3}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 4773301874153558736, guid: de3ca3a5e01d61041a0e7522e6adb220,
+        type: 3}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 5939985266776603182, guid: de3ca3a5e01d61041a0e7522e6adb220,
+        type: 3}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 6357523877612770153, guid: de3ca3a5e01d61041a0e7522e6adb220,
+        type: 3}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 7274885404780869144, guid: de3ca3a5e01d61041a0e7522e6adb220,
+        type: 3}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
     - target: {fileID: 8002432209101797939, guid: de3ca3a5e01d61041a0e7522e6adb220,
         type: 3}
       propertyPath: m_RootOrder
@@ -136552,6 +136592,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8539026632666302191, guid: de3ca3a5e01d61041a0e7522e6adb220,
+        type: 3}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 9032818036908821143, guid: de3ca3a5e01d61041a0e7522e6adb220,
+        type: 3}
+      propertyPath: m_TagString
+      value: Player
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

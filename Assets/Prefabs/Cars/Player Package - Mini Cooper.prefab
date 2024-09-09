@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 6312183051176006558}
   m_Layer: 0
   m_Name: Player Package - Mini Cooper
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -59,7 +59,7 @@ GameObject:
   - component: {fileID: 2349916531996041935}
   m_Layer: 0
   m_Name: Spot Light (1)
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -177,7 +177,7 @@ GameObject:
   - component: {fileID: 5210283972930566746}
   m_Layer: 0
   m_Name: Tire Track Particle System
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5003,7 +5003,7 @@ GameObject:
   - component: {fileID: 1533977173565361441}
   m_Layer: 0
   m_Name: Suspension FR
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5036,7 +5036,7 @@ GameObject:
   - component: {fileID: 2432366250876679450}
   m_Layer: 0
   m_Name: Wheel Smoke Particle System
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9862,7 +9862,7 @@ GameObject:
   - component: {fileID: 723439067295546427}
   m_Layer: 0
   m_Name: Center of Mass
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9896,7 +9896,7 @@ GameObject:
   - component: {fileID: 7517375141391356163}
   m_Layer: 0
   m_Name: Cube
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9998,7 +9998,7 @@ GameObject:
   - component: {fileID: 7432137990659616905}
   m_Layer: 0
   m_Name: Acceleration Point
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -10032,7 +10032,7 @@ GameObject:
   - component: {fileID: 8524005562273154930}
   m_Layer: 0
   m_Name: Wheel (1)
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -31841,7 +31841,7 @@ GameObject:
   - component: {fileID: 3120416455123776741}
   m_Layer: 0
   m_Name: Suspension BR
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -31872,7 +31872,7 @@ GameObject:
   - component: {fileID: 5332121620081524789}
   m_Layer: 0
   m_Name: Wheel Tire Tracks Systems
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -31908,7 +31908,7 @@ GameObject:
   - component: {fileID: 1826658054651056466}
   m_Layer: 0
   m_Name: Wheel (3)
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -53720,7 +53720,7 @@ GameObject:
   - component: {fileID: 507419270802606371}
   m_Layer: 0
   m_Name: Wheel FR (1)
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -75532,7 +75532,7 @@ GameObject:
   - component: {fileID: 2554924144957406411}
   m_Layer: 0
   m_Name: Wheel FL (1)
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -97343,7 +97343,7 @@ GameObject:
   - component: {fileID: 7355281244992496558}
   m_Layer: 0
   m_Name: Wheel Smoke Particle System
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -102171,7 +102171,7 @@ GameObject:
   - component: {fileID: 58260202591345188}
   m_Layer: 0
   m_Name: Spot Light
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -102289,7 +102289,7 @@ GameObject:
   - component: {fileID: 5884797272811661357}
   m_Layer: 0
   m_Name: Tire Track Particle System
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -107115,7 +107115,7 @@ GameObject:
   - component: {fileID: 1722999850353391626}
   m_Layer: 0
   m_Name: Suspension BL
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -107146,7 +107146,7 @@ GameObject:
   - component: {fileID: 8207677669626332493}
   m_Layer: 0
   m_Name: Wheel Smoke Systems
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -107184,7 +107184,7 @@ GameObject:
   - component: {fileID: 835005384848809965}
   m_Layer: 0
   m_Name: Car Controller
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -107487,7 +107487,7 @@ GameObject:
   - component: {fileID: 3884704044319416970}
   m_Layer: 0
   m_Name: Suspension FL
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -107519,6 +107519,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Camera System Package
+      objectReference: {fileID: 0}
+    - target: {fileID: 1016651008840486818, guid: de3ca3a5e01d61041a0e7522e6adb220,
+        type: 3}
+      propertyPath: m_TagString
+      value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 1736596442210137783, guid: de3ca3a5e01d61041a0e7522e6adb220,
         type: 3}
@@ -107688,6 +107693,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Mini Cooper
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 6df799deba780b54e9a42f5a7dcb6d42,
+        type: 3}
+      propertyPath: m_TagString
+      value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 5946097531363706787, guid: 6df799deba780b54e9a42f5a7dcb6d42,
         type: 3}

@@ -429,7 +429,7 @@ MonoBehaviour:
   - {fileID: 167937959057159042, guid: fead1ab305213ac419d712f45df3e8de, type: 3}
   - {fileID: 167937959057159042, guid: 2a1462cca82a17547a6cee4b60c42aad, type: 3}
   cooldown: 0.25
-  targetScene: Zone 1
+  targetScene: TrackWorkspace
 --- !u!1 &20549503
 GameObject:
   m_ObjectHideFlags: 0
