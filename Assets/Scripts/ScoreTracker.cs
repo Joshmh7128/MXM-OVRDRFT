@@ -6,7 +6,7 @@ using System.Security.Cryptography;
 
 public class ScoreTracker : MonoBehaviour
 {
-    [SerializeField] TextMeshProUGUI scoreText, feed;
+    public TextMeshProUGUI scoreText, feed, trackScore;
     CarController car;
     float score;
     int displayScore;
@@ -14,6 +14,9 @@ public class ScoreTracker : MonoBehaviour
     [SerializeField] List<string> chainTitles;
     [SerializeField] int[] chainThresholds, chainRewards; // the thresholds we need to break
     int currentChainPosition;
+    public float trackScoreShowCooldown; // should we show the track score?
+    public float currentTrackScore; // our current track score
+    [SerializeField] bool onTrack; // are we on a track?
 
     // get our car
     private void Start()
@@ -26,15 +29,30 @@ public class ScoreTracker : MonoBehaviour
     {
         // process the score every tick
         ProcessScore();
-        ProcessChains();
+        // ProcessChains();
+    }
+
+    private void FixedUpdate()
+    {
+        // if this gets over 5, hide the score
+        if (!onTrack)
+        {
+            trackScoreShowCooldown += Time.deltaTime;
+
+            if (trackScoreShowCooldown > 5)
+                trackScore.enabled = false;
+        }
     }
 
     // processes our score every update tick
     void ProcessScore()
     {
         score += ScoreToAdd();
+        // if we're on a track, add the score to the current score
+        if (onTrack) currentTrackScore += ScoreToAdd();
         currentChainScore += ScoreToAdd();
         displayScore = (int)score;
+        trackScore.text = ((int)currentTrackScore).ToString();
         scoreText.text = displayScore.ToString();
     }
 
@@ -75,7 +93,14 @@ public class ScoreTracker : MonoBehaviour
     void AdvanceChain()
     {
         currentChainPosition++;
+
+        if (score++ > chainRewards.Length - 1)
+            return;
+
         score += chainRewards[currentChainPosition];
+        // if we're on a track, add that too
+        if (onTrack) currentTrackScore += chainRewards[currentChainPosition];
+
         // then add that to our feed
         AddToFeed(chainTitles[currentChainPosition] + " - " + chainRewards[currentChainPosition]);
     }
@@ -83,5 +108,19 @@ public class ScoreTracker : MonoBehaviour
     void AddToFeed(string text)
     {
         feed.text =  text + "\n" + feed.text;
+    }
+
+    public void OnTrackStart()
+    {
+        onTrack = true;
+        trackScoreShowCooldown = 0;
+        currentTrackScore = 0;
+        trackScore.enabled = true;
+        trackScore.text = "";
+    }
+
+    public void OnTrackEnd()
+    {
+        onTrack = false;
     }
 }

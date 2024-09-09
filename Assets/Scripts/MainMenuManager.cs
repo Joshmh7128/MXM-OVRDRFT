@@ -72,8 +72,6 @@ public class MainMenuManager : MonoBehaviour
             menuState = menuStates.start;
         }
 
-        Debug.Log(Input.GetAxis("Horizontal"));
-
         // navigate our carousel to the right
         if (Input.GetAxis("Horizontal") > 0.5)
             Move(true);

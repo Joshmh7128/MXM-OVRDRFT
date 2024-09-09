@@ -160,6 +160,12 @@ public class CarController : MonoBehaviour
     {
         moveInput = Input.GetAxis("Vertical");
         steerInput = Input.GetAxis("Horizontal");
+
+        // get our restart input
+        if (Input.GetButtonDown("Back"))
+        {
+            transform.position = Vector3.zero + Vector3.up;
+        }
     }
 
     /// <summary>

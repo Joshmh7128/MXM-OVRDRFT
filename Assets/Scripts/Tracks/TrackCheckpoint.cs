@@ -9,7 +9,7 @@ namespace Tracks
     {
         // our handler, set automatically by the TrackHandler we're part of
         [HideInInspector] public TrackHandler handler;
-        [HideInInspector] public int pos;
+        [SerializeField] public int pos;
 
         // our game objects for simple visuals
         [SerializeField] GameObject markerParent; // lights to show we're active

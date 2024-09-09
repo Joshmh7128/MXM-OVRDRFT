@@ -41,6 +41,8 @@ namespace Tracks
                 state = TrackState.runningForward;
                 // we want to go forward
                 expectedCheckpoint = 1;
+                // start
+                OnTrackStart();
             }
 
             if (currentPos == trackCheckpoints.Length - 1 && state == TrackState.idle)
@@ -48,6 +50,8 @@ namespace Tracks
                 state = TrackState.runningBackward;
                 // we want to go backward
                 expectedCheckpoint = trackCheckpoints.Length - 2;
+                // start
+                OnTrackStart();
             }
 
             // else, if we get any other number, check to see what the expected number is and if we skipped anything
@@ -69,26 +73,45 @@ namespace Tracks
             // for ending the track
             if (state == TrackState.runningForward && currentPos == trackCheckpoints.Length - 1 || state == TrackState.runningBackward && currentPos == 0)
             {
-                state = TrackState.idle;
-                // enable the start and ends
-                trackCheckpoints[0].EnablePoint();
-                trackCheckpoints[trackCheckpoints.Length - 1].EnablePoint();
+                ResetCourse();
             }
+        }
+
+        void ResetCourse()
+        {
+            state = TrackState.idle;
+            // enable the start and ends
+            trackCheckpoints[0].EnablePoint();
+            trackCheckpoints[trackCheckpoints.Length - 1].EnablePoint();
+            End(true);
         }
 
         // end the track
         void End(bool honorable)
         {
+
+            // do something
+            FindObjectOfType<ScoreTracker>().OnTrackEnd();
+
             if (!honorable) 
-            { 
-                // do something
+            {
             }
+        }
+
+        // when we start a track
+        void OnTrackStart()
+        {
+            FindObjectOfType<ScoreTracker>().OnTrackStart();
         }
 
         // Update is called once per frame
         void Update()
         {
-
+            // if we press the back button cancel the track
+            if (Input.GetButtonDown("Back"))
+            {
+                ResetCourse();
+            }
         }
     }
 }
