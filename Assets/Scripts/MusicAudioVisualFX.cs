@@ -16,7 +16,7 @@ public class MusicAudioVisualFX : MonoBehaviour
 
     [SerializeField] float clipLoudness, loudnessMultiplier;
     float[] clipSampleData;
-    [SerializeField] float maxBloom;
+    [SerializeField] float maxBloom, minBloom;
 
     private void Awake()
     {
@@ -61,6 +61,6 @@ public class MusicAudioVisualFX : MonoBehaviour
     // now output that as the V on a material's emission intensity
     void ProcessVFXChanges()
     {
-        ourVolume.weight = clipLoudness * loudnessMultiplier;
+        ourVolume.weight = (clipLoudness * loudnessMultiplier) + minBloom;
     }
 }
