@@ -45,7 +45,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_IsGlobal: 1
-  priority: 0
+  priority: 1
   blendDistance: 0
   weight: 1
   sharedProfile: {fileID: 11400000, guid: dd9d3f275db0ab9439ca01f17b49c99e, type: 2}
@@ -77,8 +77,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 5215144582480811840}
   - {fileID: 3587134830142644031}
+  - {fileID: 5215144582480811840}
   - {fileID: 7528653999541744439}
   m_Father: {fileID: 0}
   m_RootOrder: -1

@@ -5,8 +5,9 @@ using UnityEngine;
 public class CameraController : MonoBehaviour
 {
     // the object we intend to follow
-    [SerializeField] Transform followPoint;
-    [SerializeField] float followSpeed, rotationSpeed;
+    [SerializeField] Transform followPoint, rotationContainer;
+    [SerializeField] float followSpeed, rotationSpeed, localRotSpeed;
+    [SerializeField] Vector3 currentLocalRot;
 
     private void FixedUpdate()
     {
@@ -34,5 +35,17 @@ public class CameraController : MonoBehaviour
         // clear the other dimensions of this rotation as we only want the y axis to move
         fromToRotation.x = 0; fromToRotation.z = 0;
         transform.rotation = Quaternion.Euler(fromToRotation);
+
+        Vector3 dir = new Vector3(0, 0, 0);
+        if (Mathf.Abs(Input.GetAxis("Right Stick X")) > 0.1f || Mathf.Abs(Input.GetAxis("Right Stick Y")) > 0.1f)
+        // get the direction from the zero point to the sticks
+            dir = new Vector3(Input.GetAxis("Right Stick X"), 0, Input.GetAxis("Right Stick Y")) - Vector3.zero;
+        
+        // lerp to the rotation
+        if (dir != Vector3.zero)
+            rotationContainer.localRotation = Quaternion.Slerp(rotationContainer.localRotation, Quaternion.LookRotation(dir,Vector3.up), 10 * Time.fixedDeltaTime);
+        else
+            rotationContainer.localRotation = Quaternion.Slerp(rotationContainer.localRotation, Quaternion.Euler(Vector3.zero), 10 * Time.fixedDeltaTime);
+
     }
 }

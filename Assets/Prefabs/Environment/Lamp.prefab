@@ -16,7 +16,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1047034734898984175
 Transform:
   m_ObjectHideFlags: 0
@@ -86,7 +86,7 @@ Transform:
   - {fileID: 3595858842653723032}
   - {fileID: 1047034734898984175}
   m_Father: {fileID: 0}
-  m_RootOrder: -1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
 --- !u!23 &16273505550098401
 MeshRenderer:

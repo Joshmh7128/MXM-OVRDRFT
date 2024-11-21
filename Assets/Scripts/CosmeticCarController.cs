@@ -7,6 +7,7 @@ public class CosmeticCarController : MonoBehaviour
 {
     // first two wheels are the front two wheels
     [SerializeField] Transform[] wheels;
+    [SerializeField] Transform[] frontWheels;
     CarController carController;
     [SerializeField] float maxSteerAngle; // the maximum angle to rotate the wheels to on the y axis
     [SerializeField] ParticleSystem[] particleSystems;
@@ -33,9 +34,13 @@ public class CosmeticCarController : MonoBehaviour
         // turn the front two wheels
         for (int i = 0; i < 2; i++)
         {
-            float angle = carController.steerInput / maxSteerAngle;
-            Vector3 currentAngles = wheels[i].localEulerAngles;
-            wheels[i].localEulerAngles = new Vector3(currentAngles.x, angle * maxSteerAngle * carController.steerStrength, currentAngles.z);
+            float steerInput = Mathf.Abs(carController.steerInput) > 0.1 ? carController.steerInput : 0;
+            float angle = steerInput / maxSteerAngle;
+            Debug.Log(angle);
+            Vector3 currentAngles = frontWheels[i].localEulerAngles;
+            float targetAngle = angle * maxSteerAngle * carController.steerStrength;
+            targetAngle = angle == 0 ? 0 : targetAngle; // so that our target angle cannot be multiplied by 0
+            frontWheels[i].localRotation = Quaternion.Euler(new Vector3(currentAngles.x, targetAngle, currentAngles.z));
         }
     }
 
@@ -47,7 +52,8 @@ public class CosmeticCarController : MonoBehaviour
         for (int i = 0; i < wheels.Length; i++)
         {
             float speed = carController.currentCarLocalVelocity.z;
-            wheels[i].localEulerAngles += new Vector3(speed * 1000, 0, 0);
+            // add the speed
+            wheels[i].rotation *= Quaternion.Euler(speed, 0, 0);
         }
     }
 

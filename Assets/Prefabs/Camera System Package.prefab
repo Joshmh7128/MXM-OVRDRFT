@@ -47,8 +47,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   followPoint: {fileID: 0}
+  rotationContainer: {fileID: 1109419826275802604}
   followSpeed: 10
   rotationSpeed: 10
+  localRotSpeed: 90
+  currentLocalRot: {x: 0, y: 0, z: 0}
 --- !u!1 &8539026632666302191
 GameObject:
   m_ObjectHideFlags: 0
