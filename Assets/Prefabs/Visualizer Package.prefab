@@ -48,7 +48,7 @@ MonoBehaviour:
   priority: 0
   blendDistance: 0
   weight: 1
-  sharedProfile: {fileID: 11400000, guid: 79b86ca2298083847a9627ecb811b5bc, type: 2}
+  sharedProfile: {fileID: 11400000, guid: dd9d3f275db0ab9439ca01f17b49c99e, type: 2}
 --- !u!1 &1668459874129828478
 GameObject:
   m_ObjectHideFlags: 0
@@ -81,7 +81,7 @@ Transform:
   - {fileID: 3587134830142644031}
   - {fileID: 7528653999541744439}
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &3597309655925292726
 GameObject:
@@ -135,6 +135,7 @@ MonoBehaviour:
   clipLoudness: 1
   loudnessMultiplier: 1
   maxBloom: 1
+  minBloom: 0
 --- !u!1 &8956475308048908963
 GameObject:
   m_ObjectHideFlags: 0
@@ -183,4 +184,4 @@ MonoBehaviour:
   priority: 0
   blendDistance: 0
   weight: 1
-  sharedProfile: {fileID: 11400000, guid: a6560a915ef98420e9faacc1c7438823, type: 2}
+  sharedProfile: {fileID: 11400000, guid: 95ebadfbe549f8b40a23bb61c6103a23, type: 2}

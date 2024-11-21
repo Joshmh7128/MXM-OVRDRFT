@@ -1,0 +1,40 @@
+newmtl Red_Metal
+Kd 0.3962264 0 0
+d 1
+
+newmtl Black_Metal
+Kd 0 0 0
+d 1
+
+newmtl Emission_White
+Kd 1 1 1
+d 1
+
+newmtl Front_Grill
+Kd 0 0 0
+d 1
+
+newmtl Tail_Light
+Kd 0.9063317 0.9063317 0.9063317
+d 1
+
+newmtl Brake_Light
+Kd 0.4117557 0.06395139 0.07499988
+d 1
+
+newmtl Exaust
+Kd 1 1 1
+d 1
+
+newmtl Glass
+Kd 0.06666665 0.001175306 0
+d 1
+
+newmtl Emission_Orange
+Kd 1 1 1
+d 1
+
+newmtl Mirror
+Kd 0.9063317 0.9063317 0.9063317
+d 1
+
