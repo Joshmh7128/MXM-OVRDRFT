@@ -64,6 +64,12 @@ public class CosmeticCarController : MonoBehaviour
             for (int i = 0; i < particleSystems.Length; i++)
             {
                 float rOT = carController.drifting ? 200 : 0;
+                // if we're not drifting, set the rate to a ratio of the car's current drag to the normal drag multiplied by 200
+                if (!carController.drifting)
+                {
+                    rOT = ((carController.normalDrag - carController.dragCoefficient) / carController.normalDrag)  * 200f;
+                }
+
                 var system = particleSystems[i].emission;
                 system.rateOverTime = rOT;
 

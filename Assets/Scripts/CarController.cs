@@ -36,7 +36,7 @@ public class CarController : MonoBehaviour
     [SerializeField] Transform accelerationPoint;
     [SerializeField] public float steerStrength;
     [SerializeField] AnimationCurve turningCurve;
-    [SerializeField] float dragCoefficient, normalDrag, driftDrag, dragChangeDelta;
+    public float dragCoefficient, normalDrag, driftDrag, dragChangeDelta, toNormalDragChangeDelta;
     [SerializeField] public bool drifting;
     public float sidewaysSpeed; // how fast we are moving sideways
 
@@ -250,9 +250,11 @@ public class CarController : MonoBehaviour
         // then set our drag coefficient accordingly
         // slowly adjust our drag coefficient so that we do not instantly snap to position
         if (drifting)
+            // when we start drifting, instantly change drag
             dragCoefficient = Mathf.Lerp(dragCoefficient, driftDrag, dragChangeDelta * Time.deltaTime);
         else
-            dragCoefficient = Mathf.Lerp(dragCoefficient, normalDrag, dragChangeDelta * Time.deltaTime);
+            // when we stop drifting, slowly change drag
+            dragCoefficient = Mathf.Lerp(dragCoefficient, normalDrag, toNormalDragChangeDelta * Time.deltaTime);
     }
 
     Vector3 positionLastFrame = Vector3.zero;

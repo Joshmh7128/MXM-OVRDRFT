@@ -86028,6 +86028,7 @@ MonoBehaviour:
   normalDrag: 10
   driftDrag: 1
   dragChangeDelta: 6
+  toNormalDragChangeDelta: 0.1
   drifting: 0
   sidewaysSpeed: 0
 --- !u!114 &8671157035744794537
