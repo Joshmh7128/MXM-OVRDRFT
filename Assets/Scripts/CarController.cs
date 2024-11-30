@@ -19,6 +19,7 @@ public class CarController : MonoBehaviour
     [SerializeField] float restLength, springTravel, wheelRadius, damperStiffness, springStiffness;
     [SerializeField] Rigidbody carBody;
     [SerializeField] Transform centerOfMass;
+    [SerializeField] Vector3 resetPos;
 
     // whether or not the controller has been initialized
     [SerializeField] bool controllerInitialized;
@@ -164,7 +165,7 @@ public class CarController : MonoBehaviour
         // get our restart input
         if (Input.GetButtonDown("Back"))
         {
-            transform.position = Vector3.zero + Vector3.up;
+            transform.position = resetPos;
         }
     }
 
