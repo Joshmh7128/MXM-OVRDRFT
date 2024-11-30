@@ -14,8 +14,8 @@ public class PlayerPackage : MonoBehaviour
     {
         if (Input.GetButtonDown("Start"))
         {
-            SceneManager.LoadScene("CarSelect");
-            Destroy(gameObject);
+            // SceneManager.LoadScene("CarSelect");
+            // Destroy(gameObject);
         }
     }
 }
