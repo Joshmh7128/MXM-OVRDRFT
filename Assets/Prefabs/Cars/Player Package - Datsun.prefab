@@ -86036,6 +86036,7 @@ MonoBehaviour:
   springStiffness: 30000
   carBody: {fileID: 0}
   centerOfMass: {fileID: 8845071659416914624}
+  resetPos: {x: 0, y: 0, z: 0}
   controllerInitialized: 0
   isGrounded: 0
   moveInput: 0
@@ -86174,7 +86175,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   engineSource: {fileID: 835005384848809965}
   accel: {fileID: 8300000, guid: 02911d49f52caf642a28b126444f0187, type: 3}
-  idle: {fileID: 0}
+  idle: {fileID: 8300000, guid: 79c0f243ad769bd40bb4177fe53127bf, type: 3}
   gearMax: 3.472018
   gearCurrentProgress: 0
   speed: 1
@@ -86192,14 +86193,14 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 02911d49f52caf642a28b126444f0187, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.5
   m_Pitch: 1
   Loop: 0
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
   Priority: 128
-  DopplerLevel: 1
+  DopplerLevel: 0
   MinDistance: 1
   MaxDistance: 500
   Pan2D: 0
@@ -86236,7 +86237,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0
+      value: 1
       inSlope: 0
       outSlope: 0
       tangentMode: 0

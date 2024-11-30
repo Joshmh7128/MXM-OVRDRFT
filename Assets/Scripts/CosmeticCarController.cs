@@ -36,7 +36,6 @@ public class CosmeticCarController : MonoBehaviour
         {
             float steerInput = Mathf.Abs(carController.steerInput) > 0.1 ? carController.steerInput : 0;
             float angle = steerInput / maxSteerAngle;
-            Debug.Log(angle);
             Vector3 currentAngles = frontWheels[i].localEulerAngles;
             float targetAngle = angle * maxSteerAngle * carController.steerStrength;
             targetAngle = angle == 0 ? 0 : targetAngle; // so that our target angle cannot be multiplied by 0

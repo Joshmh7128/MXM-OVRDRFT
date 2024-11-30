@@ -36,22 +36,31 @@ public class MusicAudioVisualFX : MonoBehaviour
     {
         currentUpdateTime += Time.deltaTime;
 
-        if (currentUpdateTime > updateStep)
-            currentUpdateTime = 0f;
-
-        if (source == null)
-            source = FindObjectOfType<RadioController>().audioSource;
-
-        if (source.timeSamples > 1030 && source.clip != null)
-            try { source.clip.GetData(clipSampleData, source.timeSamples); }
-            catch { }
-
-        clipLoudness = 0f;
-
-        foreach (var sample in clipSampleData)
+        try
         {
-            clipLoudness += Mathf.Abs(sample);
+            if (currentUpdateTime > updateStep)
+                currentUpdateTime = 0f;
+
+
+            if (source == null)
+            {
+
+                source = FindObjectOfType<RadioController>().audioSource;
+            }
+
+            if (source.timeSamples > 1030 && source.clip != null)
+                try { source.clip.GetData(clipSampleData, source.timeSamples); }
+                catch { }
+
+            clipLoudness = 0f;
+
+            foreach (var sample in clipSampleData)
+            {
+                clipLoudness += Mathf.Abs(sample);
+            }
         }
+        catch { }
+
 
         clipLoudness /= sampleDataLength;
 

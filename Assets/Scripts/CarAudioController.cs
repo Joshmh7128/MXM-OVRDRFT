@@ -36,15 +36,7 @@ public class CarAudioController : MonoBehaviour
         // if we ever hit the top of the gear, bounce on it
         if (gearCurrentProgress >= gearMax)
         {
-            // if we're not drifting shift up
-            if (!carController.drifting)
-                ShiftUp();
-            // if we are drifting...
-            else
-            {
-                gearCurrentProgress -= bounceAmount;
-                engineSource.time = gearCurrentProgress;
-            }
+            ShiftUp();
         }
 
         // while accelerating, play the accel clip. when we decel, move backwards through the clip, then replay at the same point one accel
@@ -77,6 +69,8 @@ public class CarAudioController : MonoBehaviour
         // if we're low and idling
         if (gearCurrentProgress < 0.5f && carController.moveInput < 0.1)
         {
+            engineSource.clip = idle;
+            engineSource.loop = true;
         }
 
         if (engineSource.pitch == 0)
@@ -88,9 +82,10 @@ public class CarAudioController : MonoBehaviour
     // shift up
     void ShiftUp()
     {
-
         // reduce our gearCurrent time by our current gear * the ratio increase
-        gearCurrentProgress = gearMax * 0.5f + (currentGear * 0.1f);
+        gearCurrentProgress = gearMax / 2 + (currentGear * 0.1f);
+
+        if (gearCurrentProgress >= gearMax) currentGear = 0;
 
         currentGear++;
         // set the time

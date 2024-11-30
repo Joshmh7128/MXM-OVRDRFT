@@ -166,7 +166,11 @@ public class CarController : MonoBehaviour
         if (Input.GetButtonDown("Back"))
         {
             transform.position = resetPos;
+            transform.rotation = Quaternion.identity;
         }
+
+        // setting up photo mode
+
     }
 
     /// <summary>
