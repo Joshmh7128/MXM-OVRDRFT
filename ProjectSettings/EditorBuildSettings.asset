@@ -6,15 +6,6 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/CarSelect.unity
-    guid: 5f2fb97f9be081a47a311f2acf396693
-  - enabled: 1
-    path: Assets/Scenes/PlaySpace.unity
-    guid: 99c9720ab356a0642a771bea13969a05
-  - enabled: 1
-    path: Assets/Scenes/Zone 1.unity
-    guid: ca92464da2b387a478c3420574303a0d
-  - enabled: 1
-    path: Assets/Scenes/TrackWorkspace.unity
-    guid: 9b03a06ce182c3a47b678aab62eb30d2
+    path: Assets/Scenes/Track_001.unity
+    guid: 8382b2c060178fa4f833bd7ed93525b5
   m_configObjects: {}
