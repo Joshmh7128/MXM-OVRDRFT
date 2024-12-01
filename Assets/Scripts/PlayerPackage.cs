@@ -17,5 +17,11 @@ public class PlayerPackage : MonoBehaviour
             // SceneManager.LoadScene("CarSelect");
             // Destroy(gameObject);
         }
+
+        if (Input.GetKeyDown("escape"))
+        {
+            Debug.Log("Quit");
+            Application.Quit();
+        }
     }
 }
